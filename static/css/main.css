@@ -1,0 +1,27 @@
+/*Put search bar in middle of page*/
+
+ /*On results page, put results on left 2/3rds, and put hashtags on right 1/3rd*/
+
+
+#hashtags-container {
+    background-color: #bfdf7a;
+    height: 100vh;
+}
+
+#search-container {
+    margin-top: 20%;
+    text-align: center;
+}
+
+#search-container .form-control {
+    display: inline-block;
+}
+
+#search-container input[type='text'] {
+    width: 60%;
+}
+
+#search-results-container {
+    background-color: #97cbf2;
+    height: 100vh;
+}

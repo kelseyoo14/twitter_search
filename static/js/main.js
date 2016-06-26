@@ -1,0 +1,1 @@
+// Get data from search form and send post request to server with search terms

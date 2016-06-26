@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>A Twitter Search</title>
+        <link rel="stylesheet" href="../static/css/main.css">
+        <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div class='container'>
+            <div class='row'>
+                <div id='search-container' class='col-md-12'>
+                    <h2>Search Twitter</h2>
+                    <form id='search-form' action='/results'>
+                        <input type='text' name='search-terms' class='form-control' required>
+                        <input type='submit' value='Submit' class='btn'>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
