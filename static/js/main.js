@@ -27,11 +27,4 @@
 // $('#search-form').on('submit', getTweetData);
 
 
-$('p').linkify();
-
-// $(window).on('resize', function navbarUpdate () {
-//     var viewportWidth = $(window).width();
-//     if (viewportWidth < 768) {
-//         $("#hashtags-container").css('min-height', 0);
-//     }
-// });
+// $('p').linkify();
