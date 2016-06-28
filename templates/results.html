@@ -3,23 +3,41 @@
     <head>
         <meta charset="utf-8">
         <title>A Twitter Search</title>
-        <link rel="stylesheet" href="../static/css/main.css">
         <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/css/main.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     </head>
 
     <body>
         <div class='container'>
             <div class='row'>
-                <div id='search-results-container' class='col-md-8'>
-                    <h2>Results</h2>
-                    {{ search_terms }}
+                <div id='search-results-container' class='col-sm-10'>
+                    <h2 id='tweet-title'>Tweets</h2> <span>search = '{{ search_terms }}'</span> 
+                    <a href='/' id='new-search'>New Search</a>
+                    {% for tweet in tweet_search %}
+                        <div class='tweet-container'>
+                            <p><b>{{ tweet.author._json['name'] }}</b> @{{ tweet.author._json['screen_name'] }}</p>
+                            <p>{{ tweet.text }}</p>
+                            <p>Favorites: {{ tweet.favorite_count }}<p>
+                        </div>
+                    {% endfor %}
                 </div>
-                <div id='hashtags-container' class='col-md-4'>
-                    #hashtags
+                <div id='hashtags-container' class='col-sm-2'>
+                    <h4>#hashtag Count</h4>
+                    {% if hashtags %}
+                        {% for hashtag in hashtags %}
+                            <p>{{ hashtag }} - {{ hashtags[hashtag] }}</p>
+                        {% endfor %}
+                    {% else %}
+                        <p>No Hashtags</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
+        <script src="../static/js/bootstrap.min.js"></script>
+        <script src="../static/js/linkify.min.js"></script>
+        <script src="../static/js/linkify-jquery.min.js"></script>
+        <script type="text/javascript" src="../static/js/main.js"></script>
     </body>
 
 </html>

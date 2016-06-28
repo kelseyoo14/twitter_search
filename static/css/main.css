@@ -1,11 +1,29 @@
 /*Put search bar in middle of page*/
 
  /*On results page, put results on left 2/3rds, and put hashtags on right 1/3rd*/
+body {
+    background-color: #dbf3ff;
+}
 
+.form-control {
+    display: inline-block;
+    width: 80px;
+}
 
 #hashtags-container {
-    background-color: #bfdf7a;
-    height: 100vh;
+    background-color: rgba(255, 238, 189, 0.82);
+    padding: 1em 1em 2em 1em;
+    word-wrap: break-word;
+}
+
+#hashtags-container h4 {
+    border-bottom: 1px solid black;
+}
+
+#new-search {
+    font-size: 1.45em;
+    float: right;
+    margin-top: 1.2em;
 }
 
 #search-container {
@@ -13,15 +31,44 @@
     text-align: center;
 }
 
-#search-container .form-control {
-    display: inline-block;
-}
-
 #search-container input[type='text'] {
     width: 60%;
 }
 
 #search-results-container {
-    background-color: #97cbf2;
-    height: 100vh;
+    background-color: #b3dfff;
+    padding: 0em 1em 1em 1em;
+    min-height: 100vh;
 }
+
+#search-results-container span {
+    font-size: 1.3em;
+}
+
+.tweet-container {
+    background-color: white;
+    /*border-bottom: 1px solid black;*/
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px #ababab;
+    margin: 10px;
+    padding: 10px;
+}
+
+.tweet-container h5,
+.tweet-container h6 {
+    display: inline-block;
+}
+
+#tweet-title {
+    border-bottom: 1px solid black;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+
+@media screen and (min-width: 768px) {
+    #hashtags-container {
+        min-height: 100vh;
+    }
+}
+

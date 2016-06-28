@@ -3,23 +3,74 @@
     <head>
         <meta charset="utf-8">
         <title>A Twitter Search</title>
-        <link rel="stylesheet" href="../static/css/main.css">
         <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/css/main.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     </head>
 
-    <body>
+    <body id='homepage'>
         <div class='container'>
             <div class='row'>
                 <div id='search-container' class='col-md-12'>
-                    <h2>Search Twitter</h2>
+                    <h2>Twitter Search!</h2>
                     <form id='search-form' action='/results'>
-                        <input type='text' name='search-terms' class='form-control' required>
-                        <input type='submit' value='Submit' class='btn'>
+                        <input type='text' name='search_terms' class='form-control' id='search-terms' required>
+<!--                         <br>
+                        <br> -->
+                        <select name='number-of-tweets' class='form-control' id='number-of-tweets-select'>
+                            <option value='10' selected>10</option>
+                            <option value='40'>40</option>
+                            <option value='70'>70</option>
+                            <option value='100'>100</option>
+                        </select>
+                        <select name='filter' class='form-control' id='filter-select'>
+                            <option value=''>None</option>
+                            <option value='safe'>Safe</option>
+                            <option value='images'>Images</option>
+                            <option value='image'>links</option>
+                            <option value='media'>Media</option>
+                        </select>
+                        <select name='language' class='form-control' id='language-select'>
+                            <option value='ar'>Arabic</option>
+                            <option value='da'>Danish</option>
+                            <option value='nl'>Dutch</option>
+                            <option value='en' selected>English</option>
+                            <option value='en-gb'>English UK</option>
+                            <option value='fa'>Farsi</option>
+                            <option value='fil'>Filipino</option>
+                            <option value='fi'>Finnish</option>
+                            <option value='fr'>French</option>
+                            <option value='de'>German</option>
+                            <option value='he'>Hebrew</option>
+                            <option value='hi'>Hindi</option>
+                            <option value='hu'>Hungarian</option>
+                            <option value='id'>Indonesian</option>
+                            <option value='it'>Italian</option>
+                            <option value='ja'>Japanese</option>
+                            <option value='ko'>Korean</option>
+                            <option value='msa'>Malay</option>
+                            <option value='no'>Norwegian</option>
+                            <option value='pl'>Polish</option>
+                            <option value='pt'>Portuguese</option>
+                            <option value='ru'>Russian</option>
+                            <option value='es'>Spanish</option>
+                            <option value='sv'>Swedish</option>
+                            <option value='th'>Thai</option>
+                            <option value='zh-cn'>Traditional Chinese</option>
+                            <option value='tr'>Turkish</option>
+                            <option value='ur'>Urdu</option>
+                        </select>
+<!--                         <br>
+                        <br> -->
+                        <input type='submit' value='Submit' class='btn btn-primary'>
                     </form>
                 </div>
             </div>
         </div>
+        <script src="../static/js/bootstrap.min.js"></script>
+        <script src="../static/js/linkify.min.js"></script>
+        <script src="../static/js/linkify-jquery.min.js"></script>
+        <script type="text/javascript" src="../static/js/main.js"></script>
     </body>
 
 </html>
