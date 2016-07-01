@@ -18,16 +18,16 @@ api = tweepy.API(auth)
 
 @app.route('/')
 def homepage():
-    "Display homepage"
+    """Display homepage"""
 
     return render_template('homepage.html')
 
 
 @app.route('/results')
 def search_twitter():
-    "Receive search terms from js, send to twitter api to retrieve results"
+    """Receive search terms from js, send to twitter api to retrieve results"""
 
-    original_search_terms = request.args.get('search_terms')
+    original_search_terms = request.args.get('search-terms')
     tweet_filter = request.args.get('filter')
     number_of_tweets = request.args.get('number-of-tweets')
     language = request.args.get('language')
