@@ -14,13 +14,17 @@
                 <div id='search-results-container' class='col-sm-10'>
                     <h2 id='tweet-title'>Tweets</h2> <span>search = '{{ search_terms }}'</span> 
                     <a href='/' id='new-search'>New Search</a>
-                    {% for tweet in tweet_search %}
-                        <div class='tweet-container'>
-                            <p><b>{{ tweet.author._json['name'] }}</b> @{{ tweet.author._json['screen_name'] }}</p>
-                            <p>{{ tweet.text }}</p>
-                            <p>Favorites: {{ tweet.favorite_count }}<p>
-                        </div>
-                    {% endfor %}
+                    {% if tweet_search %}
+                        {% for tweet in tweet_search %}
+                            <div class='tweet-container'>
+                                <p><b>{{ tweet.author._json['name'] }}</b> @{{ tweet.author._json['screen_name'] }}</p>
+                                <p>{{ tweet.text }}</p>
+                                <p>Favorites: {{ tweet.favorite_count }}<p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No Results Matched Your Search. Try a New Search!</p>
+                    {% endif %}
                 </div>
                 <div id='hashtags-container' class='col-sm-2'>
                     <h4>#hashtag Count</h4>

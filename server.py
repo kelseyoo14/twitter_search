@@ -1,10 +1,5 @@
-from flask import Flask, request, render_template, session, flash
-from flask import redirect as flaskredirect
-from flask_sqlalchemy import SQLAlchemy
-import requests
+from flask import Flask, request, render_template
 import os
-import json
-import base64
 import tweepy
 
 CONSUMER_KEY = os.environ['CONSUMER_KEY']
@@ -14,17 +9,11 @@ ACCESS_TOKEN_SECRET = os.environ['ACCESS_TOKEN_SECRET']
 
 app = Flask(__name__)
 
-# Required to use Flask sessions and the debug toolbar
-app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY", "abcdef")
+app.secret_key = "SecretKey!"
 
 auth = tweepy.AppAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-# auth.secure = True
-# auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
 api = tweepy.API(auth)
-
-# print(api)
-# print '************************************'
 
 
 @app.route('/')
@@ -43,9 +32,6 @@ def search_twitter():
     number_of_tweets = request.args.get('number-of-tweets')
     language = request.args.get('language')
 
-    # print search_terms, tweet_filter, number_of_tweets, language
-    # print '***********************************************************************'
-
     if tweet_filter:
         search_terms = '%s filter:%s' % (original_search_terms, tweet_filter)
     else:
@@ -55,9 +41,9 @@ def search_twitter():
 
     hashtags = {}
 
-    for i, tweet in enumerate(tweet_search):
+    for tweet in tweet_search:
         tweet = tweet.text.split()
-        for j, word in enumerate(tweet):
+        for word in tweet:
             if word[0] == '#':
                 if word in hashtags:
                     hashtags[word] += 1
@@ -74,8 +60,3 @@ if __name__ == "__main__":
 
     context = ('server-files/yourserver.crt', 'server-files/yourserver.key')
     app.run(ssl_context=context)
-
-    # DEBUG = "NO_DEBUG" not in os.environ
-    # PORT = int(os.environ.get("PORT", 5000))
-
-    # app.run(host="0.0.0.0", port=PORT, debug=DEBUG)
